@@ -26,6 +26,8 @@ public extension ReorderableVStack {
     self.init(
       data.wrappedValue,
       onMove: { from, to in
+          guard data.wrappedValue.indices.contains(from),
+                data.wrappedValue.indices.contains(to) else { return }
         withAnimation {
           data.wrappedValue.move(fromOffsets: IndexSet(integer: from),
                                  toOffset: (to > from) ? to + 1 : to)
@@ -53,6 +55,8 @@ public extension ReorderableVStack {
     self.init(
       data.wrappedValue,
       onMove: { from, to in
+          guard data.wrappedValue.indices.contains(from),
+                data.wrappedValue.indices.contains(to) else { return }
         withAnimation {
           data.wrappedValue.move(fromOffsets: IndexSet(integer: from),
                                  toOffset: (to > from) ? to + 1 : to)
@@ -83,6 +87,8 @@ public extension ReorderableHStack {
     self.init(
       data.wrappedValue,
       onMove: { from, to in
+          guard data.wrappedValue.indices.contains(from),
+                data.wrappedValue.indices.contains(to) else { return }
         withAnimation {
           data.wrappedValue.move(fromOffsets: IndexSet(integer: from),
                                  toOffset: (to > from) ? to + 1 : to)
@@ -110,6 +116,8 @@ public extension ReorderableHStack {
     self.init(
       data.wrappedValue,
       onMove: { from, to in
+          guard data.wrappedValue.indices.contains(from),
+                data.wrappedValue.indices.contains(to) else { return }
         withAnimation {
           data.wrappedValue.move(fromOffsets: IndexSet(integer: from),
                                  toOffset: (to > from) ? to + 1 : to)
