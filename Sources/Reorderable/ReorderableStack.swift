@@ -98,6 +98,9 @@ package struct ReorderableStack<Axis: ContainerAxis, Data: RandomAccessCollectio
           dragCoordinatesSpaceName: coordinateSpaceName,
           isEnabled: !dragDisabled))
         .onDisappear {
+            if dragging == datum.id {
+                dragging = nil
+            }
           positions.removeValue(forKey: datum.id)
         }
         .sensoryFeedback(trigger: currentIndex) { old, new in
